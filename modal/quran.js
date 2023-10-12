@@ -5,8 +5,7 @@ const quranSchema =new mongoose.Schema({
       name: String,
       number: String,
       versesNumber:String,
-      verses_arabic:String,
-      verses_bangla: String,
+      verses:String,
         summary: String,
     
 
