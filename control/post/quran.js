@@ -87,12 +87,10 @@ exports.subjectPageOne = async (req, res) => {
   let { subjectPageOne } = req.params;
 
   const DB = await Quran.find(
-  {[
-   
-            { verses: { $regex: subjectPageOne } },
-            { summary: { $regex: subjectPageOne } },
-          
-    ]}
+  {$or: [
+            { verses: { $regex: subject } },
+            { summary: { $regex: subject } },
+          ]}
     );
 
   try {
