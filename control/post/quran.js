@@ -60,13 +60,12 @@ exports.subject = async (req, res) => {
   let { book, subject } = req.params;
 
  const DB = await Quran.find({
-      $and: [{$and:[
-        { book: { $regex: book } },],
+      $and: [
+        { book: { $regex: book }
         },
         {
           $or: [
-            { verses_arabic: { $regex: subject } },
-              { verses_bangla: { $regex: subject } },
+            { verses: { $regex: subject } }
             { summary: { $regex: subject } },
           ],
         },
@@ -86,12 +85,11 @@ exports.subject = async (req, res) => {
 //subjectPageOne
 exports.subjectPageOne = async (req, res) => {
   let { subjectPageOne } = req.params;
-console.log(subjectPageOne)
+
   const DB = await Quran.find(
   { 
    $or: [
-            { verses_arabic: { $regex: subjectPageOne } },
-              { verses_bangla: { $regex: subjectPageOne } },
+            { verses: { $regex: subjectPageOne } },
             { summary: { $regex: subjectPageOne } },
           ],
     }
@@ -113,12 +111,11 @@ exports.subjectThree = async (req, res) => {
     const DB = await Quran.find({
       $and: [{$and:[
         { book: { $regex: book } },
-        { name: { $regex: surah } },],
+        { name: { $regex: surah } },]
         },
         {
           $or: [
-            { verses_arabic: { $regex: subject } },
-              { verses_bangla: { $regex: subject } },
+            { verses: { $regex: subject } },
             { summary: { $regex: subject } },
           ],
         },
@@ -138,13 +135,12 @@ exports.subjectSurah = async (req, res) => {
   let { book, surah, subject } = req.params;
 
   const DB = await Quran.find({
-      $and: [{$and:[
-        { book: { $regex: book } },],
+      $and: [
+        { book: { $regex: book }
         },
         {
           $or: [
-            { verses_arabic: { $regex: subject } },
-              { verses_bangla: { $regex: subject } },
+            { verses: { $regex: subject } },
             { summary: { $regex: subject } },
           ],
         },
