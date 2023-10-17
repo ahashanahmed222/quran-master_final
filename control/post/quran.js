@@ -65,7 +65,7 @@ exports.subject = async (req, res) => {
         },
         {
           $or: [
-            { verses: { $regex: subject } }
+            { verses: { $regex: subject } },
             { summary: { $regex: subject } },
           ],
         },
