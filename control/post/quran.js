@@ -90,8 +90,8 @@ exports.subjectPageOne = async (req, res) => {
   {$or: [
             { verses: { $regex: subject } },
             { summary: { $regex: subject } },
-          ]}
-    );
+          ]
+  });
 
   try {
     res.status(200).json(DB);
