@@ -1,0 +1,12 @@
+# Exported from Render on 2024-09-20T14:44:36Z
+services:
+- type: web
+  name: quran server
+  runtime: node
+  repo: https://github.com/ahashanahmed222/quran-master_final
+  plan: free
+  region: oregon
+  buildCommand: 'npm install '
+  startCommand: node server.js
+  rootDir: ./
+version: "1"
